@@ -74,7 +74,7 @@ test:
     - msmbuilder.utils
   commands:
     - msmb -h
-    - pytest -v ../../msmbuilder -W ignore::DeprecationWarning
+    - pytest -v 
 
 #test:
   #requires:
