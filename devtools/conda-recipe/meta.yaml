@@ -21,7 +21,7 @@ requirements:
     - python 
     - mdtraj
     - cython
-    - numpy 
+    - numpy >= 1.17
     - libgomp  # [linux]
   run:
     - python
