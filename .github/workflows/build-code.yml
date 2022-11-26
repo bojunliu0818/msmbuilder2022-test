@@ -30,10 +30,14 @@ jobs:
     - name: Install required packages 
       run: |
         # conda install -yq conda-build jinja2 conda-verify
-        conda install -yq conda-build jinja2 conda-verify
+        conda install -yq conda-build conda-verify
     # - name: Install dependencies
       # run: |
         # conda env update --file environment.yml --name base
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install requests
     - name: Conda build    
       run: |
         conda build --quiet devtools/conda-recipe
