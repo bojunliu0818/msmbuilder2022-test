@@ -41,21 +41,21 @@ requirements:
     - libgomp  # [linux]
 
 
-test:
-  requires:
-    - nose
-    - nose-timer
-    - munkres
-    - numdifftools
-    - statsmodels
-    - hmmlearn
-    - cvxpy # [not win]
-    - msmb_data
-  imports:
-    - msmbuilder
-  commands:
-    - msmb -h
-    - nosetests msmbuilder -v --with-timer --timer-ok 2 --timer-warning 10 --timer-filter error
+#test:
+  #requires:
+    #- nose
+    #- nose-timer
+    #- munkres
+    #- numdifftools
+    #- statsmodels
+    #- hmmlearn
+    #- cvxpy # [not win]
+    #- msmb_data
+  #imports:
+    #- msmbuilder
+  #commands:
+    #- msmb -h
+    #- nosetests msmbuilder -v --with-timer --timer-ok 2 --timer-warning 10 --timer-filter error
 
 
 about:
