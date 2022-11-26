@@ -44,27 +44,37 @@ requirements:
     - libgomp  # [linux]
 
   test:
-  imports:
-    - msmbuilder
-    - msmbuilder.cluster
-    - msmbuilder.commands
-    - msmbuilder.decomposition
-    - msmbuilder.example_datasets
-    - msmbuilder.feature_extraction
-    - msmbuilder.feature_selection
-    - msmbuilder.featurizer
-    - msmbuilder.hmm
-    - msmbuilder.io
-    - msmbuilder.libdistance
-    - msmbuilder.lumping
-    - msmbuilder.msm
-    - msmbuilder.preprocessing
-    - msmbuilder.scripts
-    - msmbuilder.tests
-    - msmbuilder.tpt
-    - msmbuilder.utils
-  commands:
-    - msmb -h
+    requires:
+      - pytest
+      - munkres
+      - numdifftools
+      - statsmodels
+      - hmmlearn
+      - cvxpy # [not win]
+      - msmb_data
+
+    imports:
+      - msmbuilder
+      - msmbuilder.cluster
+      - msmbuilder.commands
+      - msmbuilder.decomposition
+      - msmbuilder.example_datasets
+      - msmbuilder.feature_extraction
+      - msmbuilder.feature_selection
+      - msmbuilder.featurizer
+      - msmbuilder.hmm
+      - msmbuilder.io
+      - msmbuilder.libdistance
+      - msmbuilder.lumping
+      - msmbuilder.msm
+      - msmbuilder.preprocessing
+      - msmbuilder.scripts
+      - msmbuilder.tests
+      - msmbuilder.tpt
+      - msmbuilder.utils
+    commands:
+      - msmb -h
+      - pytest msmbuilder -W ignore::DeprecationWarning
 
 #test:
   #requires:
