@@ -14,26 +14,31 @@ build:
 
 requirements:
   build:
-    - python
-    - setuptools
-    - cython
-    - numpy x.x
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - pip
+    - python 
     - mdtraj
+    - cython
+    - numpy 
+    - libgomp  # [linux]
   run:
     - python
     - setuptools
-    - numpy x.x
-    - scipy
-    - pandas
-    - six
+    - {{ pin_compatible('numpy') }}
     - mdtraj
-    - scikit-learn
-    - numpydoc
-    - pytables
-    - pyhmc
-    - pyyaml
-    - jinja2
+    - scikit-learn >0.21.1
+    - pandas
     - fastcluster
+    - jinja2 <3.1
+    - pyyaml
+    - pyhmc
+    - pytables
+    - numpydoc
+    - six
+    - scipy
+    - libgomp  # [linux]
 
 
 test:
