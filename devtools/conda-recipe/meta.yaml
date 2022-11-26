@@ -25,7 +25,7 @@ requirements:
     - libgomp  # [linux]
   run:
     - python
-    - setuptools
+    #- setuptools
     - {{ pin_compatible('numpy') }}
     - mdtraj
     - scikit-learn >0.21.1
