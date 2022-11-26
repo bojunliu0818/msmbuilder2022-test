@@ -42,6 +42,21 @@ requirements:
     - six
     - scipy
     - libgomp  # [linux]
+  test:
+    requires:
+      - pytest
+      - munkres
+      - numdifftools
+      - statsmodels
+      - hmmlearn
+      - cvxpy # [not win]
+      - msmb_data
+    imports:
+      - msmbuilder
+    commands:
+      - msmb -h
+      #- nosetests msmbuilder -v --with-timer --timer-ok 2 --timer-warning 10 --timer-filter error
+      - pytest msmbuilder -W ignore::DeprecationWarning
 
 
 #test:
