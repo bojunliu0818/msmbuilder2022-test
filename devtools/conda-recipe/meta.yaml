@@ -24,8 +24,8 @@ requirements:
     - numpy >=1.17
     - libgomp  # [linux]
     - setuptools
-    - scikit-learn >0.21.1
-    - numpydoc
+    #- scikit-learn >0.21.1
+    #- numpydoc
   run:
     - python
     - setuptools
@@ -42,22 +42,29 @@ requirements:
     - six
     - scipy
     - libgomp  # [linux]
-  test:
-    requires:
-      - pytest
-      - munkres
-      - numdifftools
-      - statsmodels
-      - hmmlearn
-      - cvxpy # [not win]
-      - msmb_data
-    imports:
-      - msmbuilder
-    commands:
-      - msmb -h
-      #- nosetests msmbuilder -v --with-timer --timer-ok 2 --timer-warning 10 --timer-filter error
-      - pytest msmbuilder -W ignore::DeprecationWarning
 
+  test:
+  imports:
+    - msmbuilder
+    - msmbuilder.cluster
+    - msmbuilder.commands
+    - msmbuilder.decomposition
+    - msmbuilder.example_datasets
+    - msmbuilder.feature_extraction
+    - msmbuilder.feature_selection
+    - msmbuilder.featurizer
+    - msmbuilder.hmm
+    - msmbuilder.io
+    - msmbuilder.libdistance
+    - msmbuilder.lumping
+    - msmbuilder.msm
+    - msmbuilder.preprocessing
+    - msmbuilder.scripts
+    - msmbuilder.tests
+    - msmbuilder.tpt
+    - msmbuilder.utils
+  commands:
+    - msmb -h
 
 #test:
   #requires:
