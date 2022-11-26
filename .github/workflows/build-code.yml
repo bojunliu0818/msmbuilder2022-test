@@ -26,7 +26,7 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-        conda config --add channels conda-forge omnia
+        conda config --add channels conda-forge 
     - name: Install required packages 
       run: |
         # conda install -yq conda-build jinja2 conda-verify
@@ -50,6 +50,7 @@ jobs:
         #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy msmb_data
+        conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy 
+        conda install -c omnia msmb_data
         python -m pytest msmbuilder -W ignore::DeprecationWarning
         # pytest
