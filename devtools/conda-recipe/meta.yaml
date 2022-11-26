@@ -18,13 +18,13 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     #- pip
-    #- python 
+    - python 
     - mdtraj
     - cython
     - numpy 
     - libgomp  # [linux]
   run:
-    #- python
+    - python
     - setuptools
     - {{ pin_compatible('numpy') }}
     - mdtraj
