@@ -21,11 +21,12 @@ requirements:
     - python 
     - mdtraj
     - cython
-    - numpy >= 1.17
+    - numpy >=1.17
     - libgomp  # [linux]
+    - setuptools
   run:
     - python
-    #- setuptools
+    - setuptools
     - {{ pin_compatible('numpy') }}
     - mdtraj
     - scikit-learn >0.21.1
