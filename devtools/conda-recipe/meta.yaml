@@ -24,6 +24,8 @@ requirements:
     - numpy >=1.17
     - libgomp  # [linux]
     - setuptools
+    - scikit-learn >0.21.1
+    - numpydoc
   run:
     - python
     - setuptools
