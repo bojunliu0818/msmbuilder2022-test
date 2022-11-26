@@ -52,6 +52,6 @@ jobs:
     - name: Test with pytest
       run: |
         conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy scikit-learn numpydoc
-        # conda install -c omnia msmb_data
+        conda install -c omnia msmb_data
         python -m pytest msmbuilder -W ignore::DeprecationWarning
-        # pytest
+        # pytests
