@@ -31,7 +31,7 @@ jobs:
     - name: Install required packages 
       run: |
         # conda install -yq conda-build jinja2 conda-verify
-        conda install -yq conda-build conda-verify
+        conda install -yq conda-build conda-verify 
     # - name: Install dependencies
       # run: |
         # conda env update --file environment.yml --name base
