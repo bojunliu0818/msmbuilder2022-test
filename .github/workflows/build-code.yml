@@ -46,7 +46,10 @@ jobs:
         # conda update conda
         conda update conda-build
         # conda build --croot ./output_build
-        conda build --quiet devtools/conda-recipe
+        mkdir pkgs/
+        conda build --quiet devtools/conda-recipe --output --croot pkgs/
+        ls
+        ls pkgs/
     #- name: Lint with flake8
       #run: |
         #conda install flake8
