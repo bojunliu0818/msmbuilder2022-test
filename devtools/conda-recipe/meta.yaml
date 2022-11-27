@@ -74,6 +74,8 @@ test:
     - msmbuilder.utils
   commands:
     - conda list
+    - pip show msmbuilder
+    - pip show msmbuilder2022
     - msmb -h
     #- pytest -v 
 
