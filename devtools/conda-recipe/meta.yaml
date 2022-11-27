@@ -74,7 +74,7 @@ test:
     - msmbuilder.tpt
     - msmbuilder.utils
   source_files:
-    - ../run_test/run_test.sh
+    - run_test.sh
 
   commands:
     - conda list
