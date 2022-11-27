@@ -41,7 +41,12 @@ jobs:
         python -m pip install --upgrade requests
     - name: Conda build    
       run: |
-        conda build --quiet devtools/conda-recipe --output 'msm.tar.bz2'
+        mkdir output_build
+        # conda install conda-build
+        # conda update conda
+        conda update conda-build
+        # conda build --croot ./output_build
+        conda build --quiet devtools/conda-recipe --croot ./output_build
     #- name: Lint with flake8
       #run: |
         #conda install flake8
@@ -51,7 +56,7 @@ jobs:
         #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        conda install msm.tar.bz2
+        ls ./output_build
         conda list
         # environ.get('GIT_DESCRIBE_TAG')
         echo $GIT_DESCRIBE_TAG
