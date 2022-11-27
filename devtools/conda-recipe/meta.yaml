@@ -74,6 +74,7 @@ test:
     - msmbuilder.tpt
     - msmbuilder.utils
   source_files:
+    - ../../
     - run_test.sh
 
   commands:
