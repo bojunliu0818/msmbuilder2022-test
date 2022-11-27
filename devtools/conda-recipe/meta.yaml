@@ -1,5 +1,5 @@
 package:
-  name: msmbuilder
+  name: msmbuilder2022
   version: {{ environ.get('GIT_DESCRIBE_TAG') }}
 
 source:

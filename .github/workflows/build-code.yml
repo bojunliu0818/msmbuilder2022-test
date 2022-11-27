@@ -46,10 +46,11 @@ jobs:
         # conda update conda
         conda update conda-build
         # conda build --croot ./output_build
-        mkdir ../pkgs/
-        conda build --quiet devtools/conda-recipe --output --croot ../pkgs/
-        ls
-        ls ../pkgs/
+        # mkdir ../pkgs/
+        # conda build --quiet devtools/conda-recipe --output --croot ../pkgs/
+        # ls
+        # ls ../pkgs/
+        conda build --quiet devtools/conda-recipe 
     #- name: Lint with flake8
       #run: |
         #conda install flake8
@@ -62,10 +63,10 @@ jobs:
         #ls 
         #ls devtools/
         #ls devtools/conda-recipe/
-        conda install --use-local msmbuilder
+        conda install --use-local msmbuilder2022
         conda list
         # environ.get('GIT_DESCRIBE_TAG')
-        echo $GIT_DESCRIBE_TAG
+        # echo $GIT_DESCRIBE_TAG
         # conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy scikit-learn numpydoc
         # conda install -c omnia msmb_data
         # python -m pytest msmbuilder -W ignore::DeprecationWarning
