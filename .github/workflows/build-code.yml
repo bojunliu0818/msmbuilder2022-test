@@ -62,7 +62,7 @@ jobs:
         #ls 
         #ls devtools/
         #ls devtools/conda-recipe/
-        conda install --use-local msmbuilder2022
+        conda install --use-local msmbuilder
         conda list
         # environ.get('GIT_DESCRIBE_TAG')
         echo $GIT_DESCRIBE_TAG
