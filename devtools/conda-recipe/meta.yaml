@@ -73,6 +73,7 @@ test:
     - msmbuilder.tpt
     - msmbuilder.utils
   commands:
+    - conda list
     - msmb -h
     #- pytest -v 
 

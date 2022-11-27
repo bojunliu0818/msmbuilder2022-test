@@ -51,7 +51,7 @@ jobs:
         #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy scikit-learn numpydoc
-        conda install -c omnia msmb_data
-        python -m pytest msmbuilder -W ignore::DeprecationWarning
+        # conda install pytest munkres numdifftools statsmodels hmmlearn cvxpy scikit-learn numpydoc
+        # conda install -c omnia msmb_data
+        # python -m pytest msmbuilder -W ignore::DeprecationWarning
         # pytests
