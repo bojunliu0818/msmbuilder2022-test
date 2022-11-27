@@ -76,6 +76,7 @@ test:
   source_files:
     # - ../../
     - run_test.sh
+    - ../../msmbuilder/tests/
 
   commands:
     - conda list
