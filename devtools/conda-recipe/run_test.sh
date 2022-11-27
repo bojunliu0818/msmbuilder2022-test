@@ -1,6 +1,9 @@
 #!/bin/bash
 echo 1
 ls
+echo 2
 ls ../
+echo 3
 ls ../../
-python -m pytest msmbuilder/tests
+echo 4
+python -m pytest 
