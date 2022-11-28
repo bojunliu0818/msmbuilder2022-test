@@ -1,0 +1,38 @@
+name: Build msmbuilder2022 documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python version
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install pandoc
+      run: |
+        conda install pandoc 
+        # pip install pandoc is not available
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -I sphinx sphinx_rtd_theme msmb_theme
+        if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+    - name: Make docs
+      run: |
+        cd docs && make html && cd -
