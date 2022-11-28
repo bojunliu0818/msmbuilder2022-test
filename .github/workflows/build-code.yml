@@ -42,5 +42,6 @@ jobs:
         conda install -yq pytest numdifftools hmmlearn nose
         mkdir ../../pkgs
         cp -r msmbuilder/tests ../../pkgs
-        python -m ../../pkgs/tests/data_init.py
-        python -m pytest ../../pkgs/tests/ -v
+        cd ../../pkgs
+        python -m tests/data_init.py
+        python -m pytest tests/ -v
