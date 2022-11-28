@@ -77,6 +77,7 @@ jobs:
         pwd
         echo %PATH%
         echo 2
+        python tests/data_init.py
         pytest tests/
         # environ.get('GIT_DESCRIBE_TAG')
         # echo $GIT_DESCRIBE_TAG
