@@ -30,57 +30,19 @@ jobs:
         conda config --add channels omnia 
     - name: Install required packages 
       run: |
-        # conda install -yq conda-build jinja2 conda-verify
-        conda install -yq conda-build conda-verify 
-    # - name: Install dependencies
-      # run: |
-        # conda env update --file environment.yml --name base
-    - name: Install dependencies
-      run: |
+        conda install -yq conda-build jinja2 conda-verify
         python -m pip install --upgrade pip
-        python -m pip install --upgrade requests
+        conda update conda-build
     - name: Conda build    
       run: |
-        mkdir output_build
-        # conda install conda-build
-        # conda update conda
-        conda update conda-build
-        # conda build --croot ./output_build
-        # mkdir ../pkgs/
-        # conda build --quiet devtools/conda-recipe --output --croot ../pkgs/
-        # ls
-        # ls ../pkgs/
         conda build --quiet devtools/conda-recipe 
-    #- name: Lint with flake8
-      #run: |
-        #conda install flake8
-        # stop the build if there are Python syntax errors or undefined names
-        #flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        #ls 
-        #ls devtools/
-        #ls devtools/conda-recipe/
         conda install --use-local msmbuilder2022
-        conda list
         conda install pytest numdifftools hmmlearn nose
         mkdir ../../pkgs
-        ls
-        pwd
-        echo %PATH%
-        echo 1
         cp -r msmbuilder/tests ../../pkgs
         cd ../../pkgs
-        ls
-        pwd
-        echo %PATH%
-        echo 2
         python tests/data_init.py
-        pytest tests/
-        # environ.get('GIT_DESCRIBE_TAG')
-        # echo $GIT_DESCRIBE_TAG
-        # conda install -c omnia msmb_data
-        # python -m pytest msmbuilder/tests/
-        # pytests
+        pytest tests/ -v
+        

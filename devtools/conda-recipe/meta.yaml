@@ -12,7 +12,6 @@ build:
   entry_points:
     - msmb = msmbuilder.scripts.msmb:main
 
-
 requirements:
   build:
     - {{ compiler('c') }}
@@ -25,8 +24,6 @@ requirements:
     - numpy >=1.17
     - libgomp  # [linux]
     - setuptools
-    #- scikit-learn >0.21.1
-    #- numpydoc
   run:
     - python
     - setuptools
@@ -45,15 +42,6 @@ requirements:
     - libgomp  # [linux]
 
 test:
-  requires:
-    - pytest
-    - munkres
-    - numdifftools
-    - statsmodels
-    - hmmlearn
-    - cvxpy # [not win]
-    - msmb_data
-
   imports:
     - msmbuilder
     - msmbuilder.cluster
@@ -73,34 +61,8 @@ test:
     - msmbuilder.tests
     - msmbuilder.tpt
     - msmbuilder.utils
-  #source_files:
-    # - ../../
-    #- run_test.sh
-    # - ../../msmbuilder/tests/
-
   commands:
-    - conda list
-    #- pip show msmbuilder
-    - pip show msmbuilder2022
     - msmb -h
-    #- pytest -v 
-
-#test:
-  #requires:
-    #- nose
-    #- nose-timer
-    #- munkres
-    #- numdifftools
-    #- statsmodels
-    #- hmmlearn
-    #- cvxpy # [not win]
-    #- msmb_data
-  #imports:
-    #- msmbuilder
-  #commands:
-    #- msmb -h
-    #- nosetests msmbuilder -v --with-timer --timer-ok 2 --timer-warning 10 --timer-filter error
-
 
 about:
   home: https://github.com/msmbuilder/msmbuilder
