@@ -43,5 +43,5 @@ jobs:
         mkdir ../../pkgs
         cp -r msmbuilder/tests ../../pkgs
         cd ../../pkgs
-        python -m tests/data_init.py
-        python -m pytest tests/ -v
+        python tests/data_init.py
+        pytest tests/ -v
