@@ -68,11 +68,13 @@ jobs:
         mkdir ../pkgs
         ls
         pwd
+        echo %PATH%
         echo 1
         cp -r msmbuilder/tests ../pkgs
         cd ../pkgs
         ls
         pwd
+        echo %PATH%
         echo 2
         pytest tests/
         # environ.get('GIT_DESCRIBE_TAG')
