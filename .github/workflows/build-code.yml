@@ -21,12 +21,12 @@ jobs:
     - name: Set up Python 
       uses: actions/setup-python@v3
       with:
-        python-version: ${{matrix.python-version}}
+        python-version: '3.7'
     - name: Add conda to system path
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-        conda config --add channels conda-forge 
+        #conda config --add channels conda-forge 
         # conda config --add channels omnia 
     - name: Install required packages 
       run: |
