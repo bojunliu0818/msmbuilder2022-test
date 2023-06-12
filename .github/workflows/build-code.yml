@@ -24,11 +24,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Add conda to system path
       run: |
-        conda list
+        # conda list
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $GITHUB_PATH
         echo $CONDA/bin
         echo $CONDA/bin >> $GITHUB_PATH
+        echo $GITHUB_PATH
+        echo $CONDA/bin
         # conda config --add channels conda-forge 
         # conda config --add channels omnia 
     - name: Install required packages 
