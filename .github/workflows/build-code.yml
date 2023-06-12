@@ -26,10 +26,9 @@ jobs:
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
+        activate-environment: foo
     - name: Add conda to system path
       run: |
-        conda init bash
-        conda activate test
         conda list
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $GITHUB_PATH
