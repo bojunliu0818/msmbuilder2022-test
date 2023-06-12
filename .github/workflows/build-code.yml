@@ -30,6 +30,7 @@ jobs:
     - name: Add conda to system path
       shell: bash -el {0}
       run: |
+        conda activate test
         conda list
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $GITHUB_PATH
