@@ -11,6 +11,8 @@ API Changes
 
 New Features
 ~~~~~~~~~~~~
+- Added the Bayesian agglomerative clustering engine (BACE) for macrostating
+  to msmbuilder.lumping
 
 Improvements
 ~~~~~~~~~~~~
