@@ -18,24 +18,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    #- name: Set up Python ${{ matrix.python-version }}
-      #uses: actions/setup-python@v4
-      #with:
-        #python-version: ${{ matrix.python-version }}
-    - uses: conda-incubator/setup-miniconda@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
       with:
-        auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        activate-environment: test
+    #- uses: conda-incubator/setup-miniconda@v2
+      #with:
+        #auto-update-conda: true
+        #python-version: ${{ matrix.python-version }}
+        #activate-environment: test
     - name: Add conda to system path
-      shell: bash -el {0}
+      #shell: bash -el {0}
       run: |
+        conda env list
         conda activate test
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
         conda config --add channels conda-forge 
     - name: Install required packages 
-      shell: bash -el {0}
+      #shell: bash -el {0}
       run: |
         conda install -yq conda-build jinja2 conda-verify
         python -m pip install --upgrade pip
