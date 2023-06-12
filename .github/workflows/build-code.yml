@@ -15,38 +15,38 @@ jobs:
       max-parallel: 5
       matrix:
         python-version: ["3.7","3.8","3.9"]
+    defaults:
+      run:
+        shell: bash -el {0}
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+    - uses: conda-incubator/setup-miniconda@v2
       with:
+        auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-    #- uses: conda-incubator/setup-miniconda@v2
-      #with:
-        #auto-update-conda: true
-        #python-version: ${{ matrix.python-version }}
-        #activate-environment: test
-    - name: Add conda to system path
+        # activate-environment: test
+    #- name: Add conda to system path
       #shell: bash -el {0}
-      run: |
+      #run: |
         #conda env list
         #conda activate test
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-        conda env list
-        conda create -n test python=3.7
-        conda activate test
-        conda config --add channels conda-forge 
+        #echo $CONDA/bin >> $GITHUB_PATH
+        #conda env list
+        #conda create -n test python=3.7
+        #conda activate test
+        #conda config --add channels conda-forge 
     - name: Install required packages 
-      shell: bash -el {0}
+      #shell: bash -el {0}
       run: |
+        conda list
         conda install -yq conda-build jinja2 conda-verify
         python -m pip install --upgrade pip
         conda update conda-build
-        conda list
+        # conda list
     - name: Conda build 
-      shell: bash -el {0}   
+      #shell: bash -el {0}   
       run: |
         conda list
         conda build --quiet devtools/conda-recipe 
