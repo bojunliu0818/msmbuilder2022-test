@@ -26,8 +26,10 @@ jobs:
       run: |
         conda list
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        # echo $CONDA/bin >> $GITHUB_PATH
-        #conda config --add channels conda-forge 
+        echo $GITHUB_PATH
+        echo $CONDA/bin
+        echo $CONDA/bin >> $GITHUB_PATH
+        # conda config --add channels conda-forge 
         # conda config --add channels omnia 
     - name: Install required packages 
       run: |
