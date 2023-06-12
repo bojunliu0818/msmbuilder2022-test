@@ -28,7 +28,7 @@ jobs:
         #python-version: ${{ matrix.python-version }}
         #activate-environment: test
     - name: Add conda to system path
-      #shell: bash -el {0}
+      shell: bash -el {0}
       run: |
         conda env list
         conda activate test
@@ -36,7 +36,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
         conda config --add channels conda-forge 
     - name: Install required packages 
-      #shell: bash -el {0}
+      shell: bash -el {0}
       run: |
         conda install -yq conda-build jinja2 conda-verify
         python -m pip install --upgrade pip
