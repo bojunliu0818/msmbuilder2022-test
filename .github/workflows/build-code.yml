@@ -34,7 +34,6 @@ jobs:
         conda update conda-build
     - name: Conda build 
       run: |
-        conda list
         conda build --quiet devtools/conda-recipe 
     - name: Test with pytest
       run: |
