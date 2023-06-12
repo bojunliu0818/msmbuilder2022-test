@@ -38,7 +38,7 @@ jobs:
         conda build --quiet devtools/conda-recipe 
     - name: Test with pytest
       run: |
-        conda install -yq --use-local msmbuilder2022
+        conda install -yq -c ${CONDA_PREFIX}/conda-bld/ msmbuilder2022
         conda install -yq pytest numdifftools hmmlearn nose
         mkdir ../../pkgs
         cp -r msmbuilder/tests ../../pkgs
