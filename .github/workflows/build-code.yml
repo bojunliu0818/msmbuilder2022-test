@@ -30,9 +30,9 @@ jobs:
         # conda config --add channels omnia 
     - name: Install required packages 
       run: |
-        conda install -yq conda-build jinja2 conda-verify
-        python -m pip install --upgrade pip
-        conda update conda-build
+        #conda install -yq conda-build jinja2 conda-verify
+        #python -m pip install --upgrade pip
+        #conda update conda-build
     - name: Conda build    
       run: |
         conda build --quiet devtools/conda-recipe 
