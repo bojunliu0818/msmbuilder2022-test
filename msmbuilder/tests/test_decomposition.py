@@ -216,7 +216,7 @@ def test_ktica_compare_to_tica():
 
     tica = tICA(lag_time=1, n_components=2)
     ktica = KernelTICA(lag_time=1, kernel='linear', n_components=2,
-                       random_state=42)
+                       stride=5, random_state=42)
 
     tica_out = tica.fit_transform(features)[0]
     ktica_out = ktica.fit_transform(features)[0]
