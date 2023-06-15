@@ -287,7 +287,7 @@ class _SampleMSMMixin(object):
         index.
 
         """
-        if not any([isinstance(seq, collections.Iterable)
+        if not any([isinstance(seq, collections.abc.Iterable)
                     for seq in sequences]):
             sequences = [sequences]
 

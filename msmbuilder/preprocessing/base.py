@@ -52,7 +52,7 @@ class MultiSequencePreprocessingMixin(BaseEstimator):
         self.__lengths = [len(s) for s in sequences]
 
         # Indexing will fail on generic iterators
-        if not isinstance(sequences, collections.Sequence):
+        if not isinstance(sequences, collections.abc.Sequence):
             sequences = list(sequences)
 
         if len(sequences) > 0 and isinstance(sequences[0], np.ndarray):
