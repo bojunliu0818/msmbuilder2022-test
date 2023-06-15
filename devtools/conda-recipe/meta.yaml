@@ -7,8 +7,8 @@ source:
 
 build:
   script_env:
-    - VS_MAJOR=14 # [win]
-    - VS_YEAR=2015
+    - VS_MAJOR=17 # [win]
+    - VS_YEAR=2022
   preserve_egg_dir: True
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
   # number: 0
