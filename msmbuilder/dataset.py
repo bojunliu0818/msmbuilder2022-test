@@ -12,7 +12,8 @@ import re
 import socket
 import sys
 import warnings
-from collections import Sequence
+#from collections import Sequence
+from collections.abc import Sequence
 from datetime import datetime
 from os.path import join, exists, expanduser
 
