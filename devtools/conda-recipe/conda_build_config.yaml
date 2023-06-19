@@ -1,4 +1,4 @@
-python_c_compiler:
+c_compiler:
   - vs2015
 target_platform:
   - win-64
