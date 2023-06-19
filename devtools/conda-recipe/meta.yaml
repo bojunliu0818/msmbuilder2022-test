@@ -13,9 +13,9 @@ build:
     - msmb = msmbuilder.scripts.msmb:main
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+  #build:
+    #- {{ compiler('c') }}
+    #- {{ compiler('cxx') }}
     - python
   host:
     #- pip
