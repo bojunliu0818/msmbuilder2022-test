@@ -27,6 +27,7 @@ requirements:
     - numpy >=1.17
     - libgomp  # [linux]
     - setuptools
+    - zlib
   run:
     - python
     - setuptools
