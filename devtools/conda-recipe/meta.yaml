@@ -20,28 +20,28 @@ requirements:
   host:
     #- pip
     - python 
-    - mdtraj
+    #- mdtraj
     - cython
     - numpy >=1.17
-    - libgomp  # [linux]
-    - setuptools
+    #- libgomp  # [linux]
+    #- setuptools
   run:
     - python
-    - setuptools
-    - {{ pin_compatible('numpy') }}
-    - mdtraj
-    - numpy >=1.17
-    - scikit-learn >0.21.1
-    - pandas
-    - fastcluster
-    - jinja2 <3.1
-    - pyyaml
+    #- setuptools
+    #- {{ pin_compatible('numpy') }}
+    #- mdtraj
+    #- numpy >=1.17
+    #- scikit-learn >0.21.1
+    #- pandas
+    #- fastcluster
+    #- jinja2 <3.1
+    #- pyyaml
     - pyhmc
-    - pytables
-    - numpydoc
-    - six
-    - scipy
-    - libgomp  # [linux]
+    #- pytables
+    #- numpydoc
+    #- six
+    #- scipy
+    #- libgomp  # [linux]
 
 test:
   imports:
