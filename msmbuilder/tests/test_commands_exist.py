@@ -21,8 +21,10 @@ import msmbuilder.msm
 
 def get_commands_from_helptext():
     #raw = subprocess.check_output(['msmb', '-h'], universal_newlines=True)
-    raw = subprocess.run(['msmb', '-h'], universal_newlines=True)
-    lines = [l.strip() for l in raw.splitlines()]
+    #raw = subprocess.run(['msmb', '-h'], universal_newlines=True)
+    raw = subprocess.run(['msmb', '-h'], universal_newlines=True, stdout = subprocess.PIPE)
+    #lines = [l.strip() for l in raw.splitlines()]
+    lines = [l.strip() for l in raw.stdout.splitlines()]
     commandlist_i = lines.index('commands:') + 1
     lines = lines[commandlist_i:]
 
