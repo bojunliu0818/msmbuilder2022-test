@@ -22,7 +22,7 @@ import msmbuilder.msm
 def get_commands_from_helptext():
     #raw = subprocess.check_output(['msmb', '-h'], universal_newlines=True)
     #raw = subprocess.run(['msmb', '-h'], universal_newlines=True)
-    raw = subprocess.run(['msmb', '-h'], universal_newlines=True, stdout = subprocess.PIPE)
+    raw = subprocess.run(['msmb', '-h'], universal_newlines=True, check=True)
     print(raw)
     #lines = [l.strip() for l in raw.splitlines()]
     lines = [l.strip() for l in raw.stdout.splitlines()]
