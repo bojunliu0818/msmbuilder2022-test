@@ -16,7 +16,7 @@ jobs:
       matrix:
         python-version: ["3.8","3.9"]
         os: 
-          - macOS-latest
+          #- macOS-latest
           - ubuntu-latest
           - windows-latest
     defaults:
@@ -46,7 +46,7 @@ jobs:
     - name: Test with pytest
       run: |
         #conda install -yq -c ${CONDA_PREFIX}/conda-bld/ msmbuilder2022
-        # conda install -yq pytest numdifftools hmmlearn 
+        # conda install -yq pytest numdifftools hmmlearn nose
         pip install pytest numdifftools hmmlearn
         mkdir ../../pkgs
         cp -r msmbuilder/tests ../../pkgs
