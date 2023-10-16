@@ -7,6 +7,11 @@ from __future__ import print_function, division, absolute_import
 
 import collections
 
+try:
+    from collections import Iterable
+except ImportError:
+    from collections.abc import Iterable
+
 import numpy as np
 import scipy.linalg
 from scipy.sparse import csgraph, csr_matrix, coo_matrix
@@ -287,7 +292,7 @@ class _SampleMSMMixin(object):
         index.
 
         """
-        if not any([isinstance(seq, collections.Iterable)
+        if not any([isinstance(seq, Iterable)
                     for seq in sequences]):
             sequences = [sequences]
 
