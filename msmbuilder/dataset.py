@@ -12,7 +12,10 @@ import re
 import socket
 import sys
 import warnings
-from collections import Sequence
+try:
+    from collections import Sequence
+except ImportError:
+    from collections.abc import Sequence
 from datetime import datetime
 from os.path import join, exists, expanduser
 

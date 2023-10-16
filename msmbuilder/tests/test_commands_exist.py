@@ -4,6 +4,7 @@ import itertools
 import os
 import re
 import subprocess
+import pytest
 
 import msmbuilder.cluster
 import msmbuilder.decomposition
@@ -12,15 +13,20 @@ import msmbuilder.featurizer
 import msmbuilder.msm
 
 # numpy.testing.decorators removed in numpy >= 1.18
-try: 
-    from numpy.testing.decorators import skipif
-except ImportError:
-    from numpy.testing._private.decorators import skipif
+#try: 
+    #from numpy.testing.decorators import skipif
+#except ImportError:
+    #from numpy.testing._private.decorators import skipif
 
 
 def get_commands_from_helptext():
     raw = subprocess.check_output(['msmb', '-h'], universal_newlines=True)
+    #raw = subprocess.run(['msmb', '-h'], universal_newlines=True)
+    #raw = subprocess.run(['msmb', '-h'], universal_newlines=True, check=True)
+    print(raw)
     lines = [l.strip() for l in raw.splitlines()]
+    #lines = [l.strip() for l in raw.stdout.splitlines()]
+    print(lines)
     commandlist_i = lines.index('commands:') + 1
     lines = lines[commandlist_i:]
 
@@ -131,7 +137,8 @@ class CheckCommandListed(object):
         err = '{} was not listed in `msmb -h`'.format(self.command)
         assert self.command in HELP_COMMANDS, err
 
-@skipif(True) # takes a long time
+#@skipif(True) # takes a long time
+@pytest.mark.skipif(True,reason="takes a long time")
 def test_all_help_works():
     for modname, feat in get_all():
         yield CheckCommandHelpWorks(modname, feat)
