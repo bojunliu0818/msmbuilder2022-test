@@ -39,7 +39,7 @@ jobs:
           CIBW_BEFORE_BUILD: pip list
           #CIBW_BEFORE_BUILD_WINDOWS: choco install -y xdelta3
           CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
-          CIBW_ARCHS: all
+          CIBW_ARCHS: arm64
           #CIBW_TEST_SKIP: "*-macosx_arm64"
         # to supply options, put them in 'env', like:
         # env:
