@@ -211,7 +211,7 @@ setup(name='msmbuilder2022',
       },
       install_requires=[
           'numpy',
-          'mdtraj',
+          'mdtraj-duplicate',
           'scikit-learn',
           'pandas',
           'fastcluster',
@@ -221,7 +221,8 @@ setup(name='msmbuilder2022',
           'numpydoc',
           'six',
           'scipy',
-          'pyhmc @ git+https://github.com/bojunliu0818/pyhmc.git@bojunliu0818-dev',
+          #'pyhmc @ git+https://github.com/bojunliu0818/pyhmc.git@bojunliu0818-dev',
+          'pyhmc-duplicate'
       ],
       entry_points={'console_scripts':
                         ['msmb = msmbuilder.scripts.msmb:main']},
