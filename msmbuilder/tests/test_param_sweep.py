@@ -7,6 +7,8 @@ from msmbuilder.msm import MarkovStateModel
 from msmbuilder.msm import implied_timescales
 from msmbuilder.utils import param_sweep
 
+from joblib.externals.loky import set_loky_pickler
+set_loky_pickler('pickle')
 
 def test_both():
     sequences = [np.random.randint(20, size=1000) for _ in range(10)]
