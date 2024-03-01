@@ -85,7 +85,7 @@ def shell(str):
         print(e.output)
         raise
 
-@pytest.mark.skipif(sys.platform == "darwin", reason="Fatal Python error: Illegal instruction")
+#@pytest.mark.skipif(sys.platform == "darwin", reason="Fatal Python error: Illegal instruction")
 def test_atomindices_1():
     # fn = get_mdtraj_fn('2EQQ.pdb')
     # t = md.load(fn)
