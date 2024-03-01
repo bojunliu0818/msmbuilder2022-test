@@ -20,6 +20,9 @@ from msmbuilder.dataset import dataset
 from msmbuilder.example_datasets import get_data_home, FsPeptide
 from msmbuilder.utils import load
 
+if not sys.version_info < (3, 11):
+    pytest.skip("skipping command tests for python>=3.11", allow_module_level=True)
+
 DATADIR = HMM = None
 
 t = FsPeptide().get_cached().trajectories[0][0]
