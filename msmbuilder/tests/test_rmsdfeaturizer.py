@@ -7,6 +7,8 @@ from msmbuilder.example_datasets import AlanineDipeptide
 from msmbuilder.featurizer import Featurizer
 from msmbuilder.featurizer import RMSDFeaturizer
 
+import warnings
+warnings.filterwarnings("always", category=DeprecationWarning)
 
 class OldRMSDFeaturizer(Featurizer):
     """Featurizer based on RMSD to a series of reference frames.

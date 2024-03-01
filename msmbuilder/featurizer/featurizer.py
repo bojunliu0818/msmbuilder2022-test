@@ -30,8 +30,8 @@ from ..base import BaseEstimator
 #import warnings
 #warnings.filterwarnings("always", category=DeprecationWarning)
     
-warnings.filterwarnings('always', category=DeprecationWarning,
-                        module=r'^{0}\.'.format(re.escape(__name__)))
+#warnings.filterwarnings('always', category=DeprecationWarning,
+                        #module=r'^{0}\.'.format(re.escape(__name__)))
 
 def zippy_maker(aind_tuples, top):
     resseqs = []
