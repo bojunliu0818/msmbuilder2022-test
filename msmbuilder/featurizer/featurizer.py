@@ -27,8 +27,11 @@ from ..base import BaseEstimator
 
 # DeprecationWarning: Ignored by the default warning filters, except in the __main__ module (PEP 565).
 # Add this to make sure the DeprecationWarning wont be ignored, otherwise tests/test_rmsdfeaturizer 199 cause errors. 
-import warnings
-warnings.filterwarnings("always", category=DeprecationWarning)
+#import warnings
+#warnings.filterwarnings("always", category=DeprecationWarning)
+    
+warnings.filterwarnings('always', category=DeprecationWarning,
+                        module=r'^{0}\.'.format(re.escape(__name__)))
 
 def zippy_maker(aind_tuples, top):
     resseqs = []
