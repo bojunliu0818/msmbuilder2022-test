@@ -8,6 +8,8 @@ import shlex
 import shutil
 import subprocess
 import tempfile
+import pytest
+import sys
 
 import hmmlearn.hmm
 import mdtraj as md
@@ -80,7 +82,7 @@ def shell(str):
         print(e.output)
         raise
 
-
+@pytest.mark.skipif(sys.platform == "darwin", reason="Fatal Python error: Illegal instruction")
 def test_atomindices_1():
     # fn = get_mdtraj_fn('2EQQ.pdb')
     # t = md.load(fn)
