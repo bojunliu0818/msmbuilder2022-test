@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - ./docs/*
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - ./docs/*
 
 jobs:
   build_wheels:
@@ -49,9 +53,15 @@ jobs:
         run: |
           conda config --add channels conda-forge 
           # conda install -yq conda-build jinja2 conda-verify
-          conda install -yq zlib
-          conda install h5py
-          python -m pip install --upgrade pip
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            conda install -yq zlib libstdcxx-ng h5py
+          else
+            conda install -yq zlib h5py
+          fi
+          # pip 25.1.1 and setuptools 80.3.1 will enforce modern Python packaging standards.
+          # build will fail for mdtraj, python 3.9, macos.
+          python -m pip install -U pip==23.3.1
+          # python -m pip install --upgrade pip
       # Used to host cibuildwheel
       - name: Pip install and build wheels
         run: |
@@ -63,7 +73,8 @@ jobs:
         run: |
           pip install wheelhouse/msmbuilder2022*.whl
           
-          conda install -yq numdifftools hmmlearn
+          # conda install -yq numdifftools hmmlearn
+          pip install numdifftools hmmlearn statsmodels
           pip install pytest
           pip install pytest-cov
           mkdir ../../pkgs
