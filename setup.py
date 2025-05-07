@@ -210,7 +210,7 @@ setup(name='msmbuilder2022',
                          ],
       },
       install_requires=[
-          'numpy<2.1',
+          'numpy<=1.26',
           'mdtraj',
           'scikit-learn',
           'pandas',
