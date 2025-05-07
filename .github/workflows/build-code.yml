@@ -26,8 +26,8 @@ jobs:
           - ubuntu-latest
           - windows-latest        
         exclude:
-          - os: macOS-latest
-            python-version: "3.9"
+        - os: macOS-latest
+          python-version: "3.9"
     defaults:
       run:
         shell: bash -el {0}
