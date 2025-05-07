@@ -20,24 +20,26 @@ jobs:
     strategy:
       max-parallel: 6
       matrix:
-        python-version: ["3.9","3.10","3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
         os: 
-          - macOS-latest
+          - macos-latest
           - ubuntu-latest
           - windows-latest
-        include:
-        - os: ubuntu-latest
-          path: ~/.cache/pip
-        - os: macos-latest
-          path: ~/Library/Caches/pip
-        - os: windows-latest
-          path: ~\AppData\Local\pip\Cache
     defaults:
       run:
         shell: bash -el {0}
 
     steps:
     - uses: actions/checkout@v4
+    - name: Set pip cache path
+      run: |
+        if [[ "$RUNNER_OS" == "Linux" ]]; then
+          echo "PIP_CACHE=~/.cache/pip" >> $GITHUB_ENV
+        elif [[ "$RUNNER_OS" == "macOS" ]]; then
+          echo "PIP_CACHE=~/Library/Caches/pip" >> $GITHUB_ENV
+        elif [[ "$RUNNER_OS" == "Windows" ]]; then
+          echo "PIP_CACHE=$LOCALAPPDATA\\pip\\Cache" >> $GITHUB_ENV
+        fi
     - uses: actions/cache@v4
       with:
         path: ${{ matrix.path }}
