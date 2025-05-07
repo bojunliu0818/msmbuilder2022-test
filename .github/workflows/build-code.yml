@@ -24,7 +24,14 @@ jobs:
         os: 
           - macOS-latest
           - ubuntu-latest
-          - windows-latest        
+          - windows-latest  
+        include:
+        - os: ubuntu-latest
+          path: ~/.cache/pip
+        - os: macos-latest
+          path: ~/Library/Caches/pip
+        - os: windows-latest
+          path: ~\AppData\Local\pip\Cache      
         exclude:
         - os: macOS-latest
           python-version: "3.9"
